@@ -5,6 +5,8 @@
 #define DHTPIN 14     // Digital pin connected to the DHT sensor
 #define DHTTYPE DHT22   // DHT 22
 
+//Data for the DHT22 goes to pin 14 on esp32 board and the data for the relay goes to pin 32. 
+
 FirebaseData firebaseData;
 const char* ssid = "SSID"; //Use the wifi name as ssid
 const char* password =  NULL; //If your wifi has a password put it here. Must be a string
@@ -18,6 +20,8 @@ void setup() {
   delay(10);
   
   pinMode(32, OUTPUT); //This is for the relay for the dryer. Pin 32 is defined as an output.
+  digitalWrite(32, LOW);
+  
   
   dht.begin(); //start the dht module
   Serial.println('\n');
